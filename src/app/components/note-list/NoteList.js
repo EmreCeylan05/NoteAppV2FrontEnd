@@ -29,6 +29,17 @@ const NoteList = () => {
 			console.error('Düzenleme hata:', error);
 		}
 	};
+	const changePriorityNote = async (id, updatedNote) => {
+		try {
+			await axios.put(`http://localhost:5000/notes/${id}`, updatedNote);
+			const updatedNotes = notes.map((note) =>
+				note.id === id ? updatedNote : note
+			);
+			setNotes(updatedNotes);
+		} catch (error) {
+			console.error('Düzenleme hata:', error);
+		}
+	};
 	const { theme } = useApp();
 	const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
 	const classes = useStyles({ theme: currentTheme });
@@ -40,6 +51,7 @@ const NoteList = () => {
 					note={note}
 					onDelete={deleteNote}
 					onEdit={editNote}
+					onPriority={changePriorityNote}
 				/>
 			))}
 		</div>

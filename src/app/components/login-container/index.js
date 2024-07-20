@@ -28,7 +28,7 @@ export default function LoginContainer() {
                 password
             });
             setUser(response.data.user);
-            navigate('/'); // Redirect to /home after login
+            navigate('/');
         } catch (error) {
             console.error("Giriş hatası:", error);
             alert("Giriş Hatasi", error);

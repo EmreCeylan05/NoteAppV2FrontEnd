@@ -15,6 +15,7 @@ export default function NewNoteContainer({ onAddNote }) {
     const placeholderContent = language === "en" ? "Note Content..." : "Not içeriği...";
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const priority=1;
     const handleCancel = () => {
 		setTitle('');
 		setContent('');
@@ -27,7 +28,8 @@ export default function NewNoteContainer({ onAddNote }) {
         onAddNote({
             id: Date.now().toString(),
             title,
-            content
+            content,
+            priority
         });
         setTitle('');
         setContent('');

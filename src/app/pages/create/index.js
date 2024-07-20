@@ -8,24 +8,15 @@ import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 
 export default function Create() {
-    const { notes, setNotes } = useAuth();
-    const { user } = useAuth();
-    
+    const {notes,setNotes} = useAuth();
     const addNote = async (newNote) => {
-        try {
-            const response = await axios.post('http://localhost:5000/notes', {
-                ...newNote,
-                lock: false,
-                password: null,
-                priority: 1,
-                user: user.username
-            });
-            setNotes([...notes, response.data]);
-        } catch (error) {
-            console.error('ekleme hatasi:', error);
-        }
-    };
-    
+		try {
+			const response = await axios.post('http://localhost:5000/notes', newNote);
+			setNotes([...notes, response.data]);
+		} catch (error) {
+			console.error('ekleme hatasi:', error);
+		}
+	};
     const { theme } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
