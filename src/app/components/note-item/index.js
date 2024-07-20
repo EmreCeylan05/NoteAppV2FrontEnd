@@ -11,7 +11,7 @@ import SaveButton from "../buttons/SaveButton/index.js";
 import CancelButton from "../buttons/CancelButton/index.js";
 import PriorityButton from "../buttons/PriorityButton/index.js";
 
-export default function NoteItem({ note, onDelete, onEdit, onPriority }) {
+export default function NoteItem({ note, onDelete, onEdit }) {
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);
     const { theme } = useApp();
@@ -19,14 +19,14 @@ export default function NoteItem({ note, onDelete, onEdit, onPriority }) {
     const classes = useStyles({ theme: currentTheme });
     const [isEditing, setIsEditing] = useState(false);
     const [title, setTitle] = useState(note.title);
-    const [lock, setLock] = useState("unlocked");
+    const [lockStatus, setLockStatus] = useState(note.lockStatus);
 
     const handleEdit = () => {
         setIsEditing(true);
     };
 
     const handleSave = () => {
-        onEdit(note.id, { id: note.id, title, content, priority });
+        onEdit(note.id, { id: note.id, title, content, priority, lockStatus });
         setIsEditing(false);
     };
 
@@ -37,13 +37,15 @@ export default function NoteItem({ note, onDelete, onEdit, onPriority }) {
     };
 
     const handleLock = () => {
-        setLock(lock === "locked" ? "unlocked" : "locked");
+        const newLockStatus = lockStatus === "locked" ? "unlocked" : "locked";
+        setLockStatus(newLockStatus);
+        onEdit(note.id, { id: note.id, title, content, priority, lockStatus :newLockStatus });
     };
 
     const handlePriority = () => {
         const newPriority = priority >= 3 ? 1 : priority + 1;
         setPriority(newPriority);
-        onPriority(note.id, { id: note.id, title, content, priority: newPriority });
+        onEdit(note.id, { id: note.id, title, content, priority: newPriority, lockStatus });
     };
 
     return (
@@ -67,12 +69,12 @@ export default function NoteItem({ note, onDelete, onEdit, onPriority }) {
             </div>
         ) :
             (
-                lock === "locked" ? (
+                lockStatus === "locked" ? (
                     <div className={classes.noteFrame}>
                         <span className={classes.title}>???</span>
                         <span className={classes.content}>?????????</span>
                         <div className={classes.buttonContainer}>
-                            <LockButton onclick={handleLock} lock={lock} />
+                            <LockButton onclick={handleLock} lock={lockStatus} />
                         </div>
                     </div>
                 ) :
@@ -84,7 +86,7 @@ export default function NoteItem({ note, onDelete, onEdit, onPriority }) {
                                 <EditButton onclick={handleEdit} />
                                 <DeleteButton onclick={() => onDelete(note.id)} />
                                 <ExpandButton />
-                                <LockButton onclick={handleLock} lock={lock} />
+                                <LockButton onclick={handleLock} lock={lockStatus} />
                                 <PriorityButton onclick={handlePriority} priorityState={priority} />
                             </div>
                         </div>

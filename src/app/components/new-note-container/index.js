@@ -15,11 +15,12 @@ export default function NewNoteContainer({ onAddNote }) {
     const placeholderContent = language === "en" ? "Note Content..." : "Not içeriği...";
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const priority=1;
+    const lockStatus = "unlocked";
+    const priority = 1;
     const handleCancel = () => {
-		setTitle('');
-		setContent('');
-	};
+        setTitle('');
+        setContent('');
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!title.trim() || !content.trim()) {
@@ -29,7 +30,8 @@ export default function NewNoteContainer({ onAddNote }) {
             id: Date.now().toString(),
             title,
             content,
-            priority
+            priority,
+            lockStatus,
         });
         setTitle('');
         setContent('');
