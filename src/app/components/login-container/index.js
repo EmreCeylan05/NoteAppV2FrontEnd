@@ -10,17 +10,24 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export default function LoginContainer() {
     const { theme, language } = useApp();
-    const { setUser } = useAuth();
+    const { setUser ,user ,setNotes } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-
     const placeholderUser = language === "en" ? "User Name" : "Kullanıcı adı";
+    const owner = user !== null ? user.username : null;
     const middleText = language === "en" ? "Or" : "Veya";
     const placeholderPassword = language === "en" ? "Password" : "Şifre";
     const navigate = useNavigate();
-
+    const fetchNotes = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/notes?query=${owner}`);
+            setNotes(response.data);
+        } catch (error) {
+            console.error('Error fetching notes:', error);
+        }
+    };
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:5000/login', {
@@ -28,7 +35,9 @@ export default function LoginContainer() {
                 password
             });
             setUser(response.data.user);
+            fetchNotes();
             navigate('/');
+            /* buraya fetch */
         } catch (error) {
             console.error("Giriş hatası:", error);
             alert("Giriş Hatasi", error);

@@ -16,17 +16,23 @@ const App = () => {
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const location = useLocation();
-    const {setNotes} =useAuth();
+    const { setNotes, user } = useAuth();
+    const owner = user !== null ? user.username : null;
     useEffect(() => {
         const fetchNotes = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/notes');
+                const response = await axios.get('http://localhost:5000/notes', {
+                    params: {
+                        owner: owner
+                    }
+                });
                 setNotes(response.data);
             } catch (error) {
                 console.error('Error fetching notes:', error);
             }
         };
-    
+        
+
         if (location.pathname === '/') {
             fetchNotes();
         }

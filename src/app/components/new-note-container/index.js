@@ -6,6 +6,7 @@ import useStyles from './stylesheet';
 import { useState } from "react";
 import SaveButton from "../buttons/SaveButton";
 import CancelButton from "../buttons/CancelButton";
+import { useAuth } from "../../context/authcontext";
 export default function NewNoteContainer({ onAddNote }) {
 
     const { theme, language } = useApp();
@@ -17,6 +18,9 @@ export default function NewNoteContainer({ onAddNote }) {
     const [content, setContent] = useState('');
     const lockStatus = "unlocked";
     const priority = 1;
+    const { user } = useAuth();
+    const owner = user.username;
+    const password = undefined;
     const handleCancel = () => {
         setTitle('');
         setContent('');
@@ -32,6 +36,8 @@ export default function NewNoteContainer({ onAddNote }) {
             content,
             priority,
             lockStatus,
+            owner,
+            password
         });
         setTitle('');
         setContent('');

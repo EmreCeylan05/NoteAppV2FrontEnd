@@ -8,15 +8,22 @@ import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 import useStyles from "./stylesheet";
 export default function SearchBar() {
-    const {setNotes} =useAuth();
+    const {setNotes,user} =useAuth();
     const [query, setQuery] = useState('');
     const { theme, language} = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
 	const placeholder = language === "en" ? "Search for notes..." : "Arama yapın...";
+
+    const owner=user.username;
 	const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/search?query=${query}`);
+            const response = await axios.get(`http://localhost:5000/search`, {
+                params: {
+                    query: query,
+                    owner: owner
+                }
+            });
             setNotes(response.data);
         } catch (error) {
             console.error("Error fetching notes:", error);
