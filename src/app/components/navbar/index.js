@@ -8,40 +8,38 @@ import SwitchTheme from '../buttons/SwitchTheme';
 import SwitchLanguage from '../buttons/SwitchLanguage';
 import PageToggle from '../buttons/PageToggle';
 import LogoutButton from '../buttons/LogOutButton';
+import locales from '../../locales/index';
+import { useAuth } from '../../context/authcontext';
+
 export default function NavBar() {
     const { theme, isMenuOpen, language } = useApp();
+    const { user } = useAuth();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-
-    const lightText = language === "en" ? "Dark Theme" : "Koyu Tema";
-    const darkText = language === "en" ? "Light Theme" : "Açık Tema";
-    const text = theme === "dark" ? darkText : lightText;
-
-    const translateText = language === "en" ? "Türkçe" : "English";
-    const pageToggleText = language === "en" ? "Toggle Page" : "Sayfa Değiştir";
-
-
+    const translations = locales[language] || locales.en;
     return (
         <div className={`${classes.menu} ${isMenuOpen === "open" ? 'open' : 'closed'}`}>
             <div className={classes.burger}><BurgerButton /></div>
             <hr className={classes.hr}></hr>
             <div className={classes.buttonContainer}>
-                <span className={classes.text}>MENU</span>
+                <span className={classes.text}>{translations.menu}</span>
                 <div className={classes.buttonLine}>
                     <SwitchTheme />
-                    <span>{text}</span>
+                    <span>{theme === "dark" ? translations.lightTheme : translations.darkTheme}</span>
                 </div>
                 <div className={classes.buttonLine}>
                     <SwitchLanguage />
-                    <span>{translateText}</span>
+                    <span>{language === "en" ? translations.toTurkish : translations.toEnglish}</span>
                 </div>
-                <div className={classes.buttonLine}>
-                    <PageToggle />
-                    <span>{pageToggleText}</span>
-                </div>
-                <div className={classes.buttonLine}>
-                    <LogoutButton />
-                </div>
+
+                {user && <>
+                    <div className={classes.buttonLine}>
+                        <PageToggle />
+                        <span>{translations.togglePage}</span>
+                    </div>
+                    <div className={classes.buttonLine}>
+                        <LogoutButton />
+                    </div></>}
             </div>
         </div>
     );

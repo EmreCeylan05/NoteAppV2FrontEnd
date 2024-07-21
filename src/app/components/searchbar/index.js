@@ -7,13 +7,15 @@ import SearchButton from "../buttons/SearchButton";
 import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 import useStyles from "./stylesheet";
+import locales from "../../locales";
 export default function SearchBar() {
     const {setNotes,user} =useAuth();
     const [query, setQuery] = useState('');
     const { theme, language} = useApp();
+    const translations = locales[language] || locales.en;
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-	const placeholder = language === "en" ? "Search for notes..." : "Arama yapın...";
+	const placeholder = translations.searchPlaceHolder;
 
     const owner=user.username;
 	const handleSearch = async () => {

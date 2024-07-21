@@ -4,8 +4,10 @@ import darkTheme from '../../../themes/variants/dark/index';
 import lightTheme from '../../../themes/variants/light/index';
 import useStyles from '../stylesheet';
 import { useAuth } from "../../../context/authcontext";
+import locales from '../../../locales/index';
 export default function LogOutButton() {
     const { theme, language } = useApp();
+    const translations = locales[language] || locales.en;
     const { setUser } = useAuth();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
@@ -13,7 +15,7 @@ export default function LogOutButton() {
     const logout = () => {
         setUser(null);
     }
-    const loggedinText = language === "en" ? "Log Out" : "Çıkış Yap ";
+    const loggedinText = translations.logOut;
 
     return <button className={classes.button}
         onClick={logout}

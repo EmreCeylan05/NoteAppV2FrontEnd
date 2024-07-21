@@ -4,8 +4,7 @@ import darkTheme from '../../../themes/variants/dark/index';
 import lightTheme from '../../../themes/variants/light/index';
 import useStyles from '../stylesheet';
 export default function SwitchLanguage() {
-	const { language, setLanguage } = useApp();
-	const { theme } = useApp();
+	const {  theme ,language, setLanguage } = useApp();
 	const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
 	const classes = useStyles({ theme: currentTheme });
 	const iconPath = theme === 'dark' ? `${process.env.PUBLIC_URL}/assets/icons-dark` : `${process.env.PUBLIC_URL}/assets/icons-light`;

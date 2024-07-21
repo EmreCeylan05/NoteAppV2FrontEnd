@@ -1,24 +1,29 @@
-import SwitchLanguage from "../buttons/SwitchLanguage/index.js";
-import SwitchTheme from "../buttons/SwitchTheme/index.js"
-import { useAuth } from "../../context/authcontext.js";
-import { useApp } from "../../context/appcontext.js";
-import React from "react"
+import React from "react";
 import useStyles from "./stylesheet.js";
 import darkTheme from '../../themes/variants/dark/index.js';
-import lightTheme from '../../themes/variants/light/index';
+import lightTheme from '../../themes/variants/light/index.js';
+import { useAuth } from "../../context/authcontext.js";
+import { useApp } from "../../context/appcontext.js";
+import SwitchLanguage from "../buttons/SwitchLanguage/index.js";
+import SwitchTheme from "../buttons/SwitchTheme/index.js";
 import LogOutButton from "../buttons/LogOutButton/index.js";
 import SearchBar from "../searchbar/index.js";
 import BurgerButton from "../buttons/BurgerButton/index.js";
 import PageToggle from "../buttons/PageToggle/index.js";
+import locales from '../../locales/index.js';
+
 export default function Header() {
     const { user } = useAuth();
     const { theme, language } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const iconPath = `${process.env.PUBLIC_URL}/assets/icons`;
-    const loggedinText = language === "en" ? "Welcome: " +(user ?  user.username : "null")  : "Hoşgeldiniz: " + (user ?  user.username : "null");
-    const loggedoutText = language === "en" ? "Sign in" : "Giriş Yapınız";
+    const translations = locales[language] || locales.en;
+
+    const loggedinText = `${translations.welcomeUser}${user ? user.username : "null"}`;
+    const loggedoutText = translations.signIn;
     const text = user === null ? loggedoutText : loggedinText;
+
     return (
         <div className={classes.headerContainer}>
             <div className={classes.userContainer}>

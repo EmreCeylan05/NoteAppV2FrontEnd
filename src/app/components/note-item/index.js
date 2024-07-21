@@ -10,13 +10,14 @@ import LockButton from "../buttons/LockButton/index.js";
 import SaveButton from "../buttons/SaveButton/index.js";
 import CancelButton from "../buttons/CancelButton/index.js";
 import PriorityButton from "../buttons/PriorityButton/index.js";
+import locales from '../../locales/index.js'; // Import locales
 
 export default function NoteItem({ note, onDelete, onEdit }) {
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);
     const { theme, language } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
-    const passwordText = language === 'en' ? "Password" : "Şifre";
+    const { passwordPlaceholder, createPassword, enterPassword, incorrectPassword, enterAPassword } = locales[language];
     const [isEditing, setIsEditing] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [title, setTitle] = useState(note.title);
@@ -52,7 +53,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                 onEdit(note.id, { id: note.id, title, content, priority, lockStatus: "locked", owner, password: tempPassword });
                 setTempPassword('');
             } else {
-                alert("Please enter a password.");
+                alert(enterAPassword);
             }
         } else if (lockStatus === "locked") {
             if (tempPassword === password) {
@@ -60,7 +61,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                 onEdit(note.id, { id: note.id, title, content, priority, lockStatus: "unlocked", owner, password });
                 setTempPassword('');
             } else {
-                alert("Incorrect password.");
+                alert(incorrectPassword);
             }
         } else {
             const newLockStatus = lockStatus === "locked" ? "unlocked" : "locked";
@@ -87,11 +88,13 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className={classes.input}
+                    placeholder={locales[language].titlePlaceholder}
                 />
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     className={classes.textarea}
+                    placeholder={locales[language].contentPlaceholder}
                 />
                 <div className={classes.buttonContainer}>
                     <SaveButton onClick={handleSave} />
@@ -106,7 +109,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     <input
                         type="password"
                         className={classes.input}
-                        placeholder={passwordText}
+                        placeholder={passwordPlaceholder}
                         value={tempPassword}
                         onChange={(e) => setTempPassword(e.target.value)}
                     />
@@ -121,7 +124,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     <input
                         type="password"
                         className={classes.input}
-                        placeholder="Create Password"
+                        placeholder={createPassword}
                         value={tempPassword}
                         onChange={(e) => setTempPassword(e.target.value)}
                     />
