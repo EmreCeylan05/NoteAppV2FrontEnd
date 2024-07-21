@@ -46,6 +46,7 @@ const useStyles = createUseStyles({
     input: {
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
+        transition: 'all 0.3s ease',
         border: 'none',
         padding: '1em 1em',
         height: '3em',

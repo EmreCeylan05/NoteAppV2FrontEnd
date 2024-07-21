@@ -8,6 +8,7 @@ const useStyles = createUseStyles({
         width: '25em',
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
+        transition: 'all 0.3s ease',
         padding: '1em 1em',
         border: 'none',
         borderRadius: '25px',
@@ -28,6 +29,7 @@ const useStyles = createUseStyles({
     input: {
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
+        transition: 'all 0.3s ease',
         border: 'none',
         padding: '1em 1em',
         width: '80%',

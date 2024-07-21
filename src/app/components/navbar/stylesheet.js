@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
         backgroundColor: props => props.theme.menu,
         color: '#fff',
         transform: 'translateX(100%)',
-        transition: 'transform 0.3s ease-in-out',
+        transition: 'all 0.3s ease',
         zIndex: 1000,
         '&.open': {
             transform: 'translateX(0)',

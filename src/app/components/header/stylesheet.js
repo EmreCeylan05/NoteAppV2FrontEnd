@@ -3,6 +3,7 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
     headerContainer: {
         backgroundColor : props => props.theme.primary,
+        transition: 'all 0.3s ease',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         flexDirection: 'row',
@@ -21,6 +22,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        transition: 'all 0.3s ease',
     },
     userText: {
         color : props=> props.theme.text,
@@ -28,6 +30,7 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         alignItems: 'baseline',
         width : '140px',
+        transition: 'all 0.3s ease',
         '@media (max-width: 600px)': {
             display: 'none',
         }

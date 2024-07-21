@@ -4,6 +4,7 @@ const useStyles = createUseStyles({
     container: {
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
+        transition: 'all 0.3s ease',
         maxWidth: '60%',
         width: '100%',
         margin: '0 auto',
@@ -31,6 +32,7 @@ const useStyles = createUseStyles({
     input: {
         backgroundColor: props => props.theme.primary,
         color: props => props.theme.text,
+        transition: 'all 0.3s ease',
         border: 'none',
         padding: '1em 1em',
         marginTop: '1em',
@@ -53,6 +55,7 @@ const useStyles = createUseStyles({
         marginBottom: '1em',
         color: props => props.theme.text,
         backgroundColor: props => props.theme.primary,
+        transition: 'all 0.3s ease',
         borderRadius: '15px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         '&:focus': {
