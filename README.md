@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# React / Not Uygulaması için Front End v2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bu proje, basit bir tasarımla not ekleme, düzenleme, silme ve arama özelliklerine sahip bir React front-end yazılımıdır.
 
-## Available Scripts
+## Özellikler
+- **Not Ekleme:** Yeni notlar eklenebilir.
+- **Not Düzenleme:** Mevcut notlar üzerinde değişiklik yapabilir.
+- **Not Silme:** Notlar silebilir.
+- **Not Arama:** Notlar arasında arama yaparak istedikleri notu hızlıca bulabilirler.
+- **Not Kilitleme:** Notlar kullanıcı isteğine göre şifreyle kilitlenebilir.
+- **Not Sıralama:** Notlar arasında önem sırası 1 ile 3 olacak şekilde kullanıcılar istedikleri önem sırasını notlarına verebilirler.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Kurulum
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
+1. **Depoyu Klonlayın:**
+   ```bash
+   git clone https://github.com/EmreCeylan05/noteAppV2FrontEnd.git
+   cd noteAppFrontEnd
+2. **Back-end için aşağıdaki depoyu klonlayın**
+    ```bash
+    git clone https://github.com/EmreCeylan05/noteAppBackEnd.git
+3. **Veritabanı için RethinkDB kullanın**
+   - Veri tabanı için local ağınızda RethinkDB programını çalıştırınız.
+   - `notes` adında bir tablo oluşturun.
+   - Bu tabloya ikincil anahtar olarak `title`,`content`,`priority`,`password`,`owner`,`lockStatus` anahtarlarını ekleyin.
+   - `users` adında bir tablo oluşturun.
+   - Bu tabloya ikincil anahtar olarak `password` ve `username` anahtarlarını ekleyin.
+4. **Sunucu için bağımlılıkları kurun ve ayağa kaldırın**
+    ```bash
+    cd noteAppBackEnd
+    npm install
+    node index.js
+5. **Bağımlılıkları kurun**
+    ```bash
+    cd noteAppFrontEnd
+    npm install
+6. **Not uygulamasını çalıştırın**
+    ```bash
+    cd noteAppV2FrontEnd
+    npm start
