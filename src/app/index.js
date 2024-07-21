@@ -31,7 +31,7 @@ const App = () => {
                 console.error('Error fetching notes:', error);
             }
         };
-        
+
 
         if (location.pathname === '/') {
             fetchNotes();

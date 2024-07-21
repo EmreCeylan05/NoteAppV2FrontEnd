@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
         height: "100%",
         minHeight : '100vb',
         width: "100%",
-        fontFamily: 'Arial',  // Arial yazı tipi eklendi
+        fontFamily: 'Arial',
     },
 });
 
