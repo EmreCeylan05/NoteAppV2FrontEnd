@@ -18,9 +18,6 @@ export default function LoginContainer() {
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const translations = locales[language] || locales.en;
-
-    const placeholderUser = translations.usernamePlaceholder;
-    const placeholderPassword = translations.passwordPlaceholder;
     const middleText = translations.or;
     const navigate = useNavigate();
 

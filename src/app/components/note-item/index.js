@@ -10,7 +10,7 @@ import LockButton from "../buttons/LockButton/index.js";
 import SaveButton from "../buttons/SaveButton/index.js";
 import CancelButton from "../buttons/CancelButton/index.js";
 import PriorityButton from "../buttons/PriorityButton/index.js";
-import locales from '../../locales/index.js'; // Import locales
+import locales from '../../locales/index.js';
 
 export default function NoteItem({ note, onDelete, onEdit }) {
     const [content, setContent] = useState(note.content);

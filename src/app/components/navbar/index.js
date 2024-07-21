@@ -31,7 +31,6 @@ export default function NavBar() {
                     <SwitchLanguage />
                     <span>{language === "en" ? translations.toTurkish : translations.toEnglish}</span>
                 </div>
-
                 {user && <>
                     <div className={classes.buttonLine}>
                         <PageToggle />

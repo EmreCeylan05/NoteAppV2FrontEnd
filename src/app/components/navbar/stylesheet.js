@@ -21,14 +21,14 @@ const useStyles = createUseStyles({
         '@media (min-width: 1201px)': {
             display: 'none',
         },
-        userSelect :"none",
+        userSelect: "none",
     },
-    burger:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'flex-end',
-        alignItems:'center',
-        padding:'0.5em',
+    burger: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        padding: '0.5em',
         height: '6em',
     },
     buttonContainer: {
@@ -43,21 +43,21 @@ const useStyles = createUseStyles({
         padding: '2em',
     },
     buttonLine: {
-        color : props => props.theme.text,
+        color: props => props.theme.text,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems : 'center',
-        width : '100%',
-        gap :'10px',
+        alignItems: 'center',
+        width: '100%',
+        gap: '10px',
     },
-    text:{
-        color:props => props.theme.text,
-        paddingInline:'0.2em',
-        fontSize:'2em',
+    text: {
+        color: props => props.theme.text,
+        paddingInline: '0.2em',
+        fontSize: '2em',
     },
-    hr:{
-        borderColor:props => props.theme.secondary,
+    hr: {
+        borderColor: props => props.theme.secondary,
     }
 });
 

@@ -12,4 +12,4 @@ const useStyles = createUseStyles({
     }
 
 })
-export default useStyles;
+export default useStyles

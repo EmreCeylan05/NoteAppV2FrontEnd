@@ -2,16 +2,16 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     headerContainer: {
-        backgroundColor : props => props.theme.primary,
+        backgroundColor: props => props.theme.primary,
         transition: 'all 0.3s ease',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems : 'center',
+        alignItems: 'center',
         width: '100%',
         height: '6em',
-        userSelect:'none',
+        userSelect: 'none',
     },
     userPhoto: {
         borderRadius: '50%',
@@ -25,11 +25,11 @@ const useStyles = createUseStyles({
         transition: 'all 0.3s ease',
     },
     userText: {
-        color : props=> props.theme.text,
+        color: props => props.theme.text,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'baseline',
-        width : '140px',
+        width: '140px',
         transition: 'all 0.3s ease',
         '@media (max-width: 600px)': {
             display: 'none',
@@ -42,8 +42,8 @@ const useStyles = createUseStyles({
         justifyContent: 'space-between',
         height: '65%',
         maxWidth: '15em',
-        width :'12em',
-        minWidth :'9em auto',
+        width: '12em',
+        minWidth: '9em auto',
         borderRadius: '15px',
         paddingInline: '0.5em',
         marginInline: '0.5em',
@@ -53,7 +53,7 @@ const useStyles = createUseStyles({
             display: 'none',
         }
     },
-    burger:{
+    burger: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

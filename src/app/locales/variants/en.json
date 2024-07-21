@@ -21,7 +21,7 @@
     "enterPassword": "Enter Password",
     "incorrectPassword": "Incorrect Password",
     "enterAPassword": "Please enter a password.",
-    "logOut":"Log Out",
-    "searchPlaceHolder" : "Search for notes...",
-    "createAccount" : "Create Account"
+    "logOut": "Log Out",
+    "searchPlaceHolder": "Search for notes...",
+    "createAccount": "Create Account"
 }

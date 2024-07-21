@@ -10,6 +10,5 @@ const useStyles = createUseStyles({
         flexWrap: 'wrap',
         gap: '5vb',
     }
-
 })
 export default useStyles;

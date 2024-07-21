@@ -1,4 +1,3 @@
-// src/theme/styles.js
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles((theme) => ({

@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
         gap: '15%',
         minHeight: '570px',
         maxHeight: '570px',
-        minWidth: '200px',  // Adjust minimum width as needed
+        minWidth: '200px',
         flex: '1 1 auto',
         '@media (max-width: 768px)': {
             maxWidth: '100%',

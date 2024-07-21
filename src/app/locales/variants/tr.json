@@ -21,7 +21,7 @@
     "enterPassword": "Şifre Girin",
     "incorrectPassword": "Yanlış Şifre",
     "enterAPassword": "Lütfen bir şifre girin.",
-    "logOut":"Çıkış Yap",
-    "searchPlaceHolder" : "Arama yapın...",
-    "createAccount" : "Hesap Oluştur"
+    "logOut": "Çıkış Yap",
+    "searchPlaceHolder": "Arama yapın...",
+    "createAccount": "Hesap Oluştur"
 }

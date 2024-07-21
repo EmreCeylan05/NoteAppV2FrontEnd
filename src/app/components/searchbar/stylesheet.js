@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
         height: '25%',
         '@media (max-width: 700px)': {
             width: '4em',
-            height:'35%',
+            height: '35%',
             padding: '0.5em',
             justifyContent: 'center',
         }
@@ -48,9 +48,9 @@ const useStyles = createUseStyles({
         width: '80%',
         backgroundColor: props => props.theme.secondary,
         padding: '1em',
-        marginTop:'1em',
+        marginTop: '1em',
         boxShadow: '0 -2px 5px rgba(0, 0, 0, 0.2)',
-        borderRadius:'25px',
+        borderRadius: '25px',
         '@media (min-width: 701px)': {
             display: 'none',
         }

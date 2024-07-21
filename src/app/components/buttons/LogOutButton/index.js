@@ -17,9 +17,7 @@ export default function LogOutButton() {
     }
     const loggedinText = translations.logOut;
 
-    return <button className={classes.button}
-        onClick={logout}
-    >
+    return <button className={classes.button} onClick={logout}>
         <img
             src={`${iconPath}/logout.png`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}

@@ -19,7 +19,6 @@ export default function Header() {
     const classes = useStyles({ theme: currentTheme });
     const iconPath = `${process.env.PUBLIC_URL}/assets/icons`;
     const translations = locales[language] || locales.en;
-
     const loggedinText = `${translations.welcomeUser}${user ? user.username : "null"}`;
     const loggedoutText = translations.signIn;
     const text = user === null ? loggedoutText : loggedinText;

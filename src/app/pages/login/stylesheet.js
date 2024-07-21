@@ -9,8 +9,7 @@ const useStyles = createUseStyles({
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '5vb',
-        paddingTop : '1em',
+        paddingTop: '1em',
     }
-
 })
 export default useStyles;

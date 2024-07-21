@@ -7,8 +7,7 @@ export default function PriorityButton({ onClick, priorityState }) {
     const { theme } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-
-    const handleClick=()=>{
+    const handleClick = () => {
         onClick();
     }
     return <button className={classes.button} onClick={handleClick}>

@@ -1,9 +1,9 @@
-import {createContext, useContext} from "react";
+import { createContext, useContext } from "react";
 import { useState } from "react";
 const Context = createContext();
-const Provider = ({children}) => {
+const Provider = ({ children }) => {
 
-    const [theme, setTheme] = useState("light");
+	const [theme, setTheme] = useState("light");
 	const [language, setLanguage] = useState("tr");
 	const [isMenuOpen, setIsMenuOpen] = useState("closed");
 	const data = {
@@ -15,11 +15,11 @@ const Provider = ({children}) => {
 		setIsMenuOpen,
 	}
 
-    return (
-        <Context.Provider value={data} >
-        {children}
-        </Context.Provider>
-    )
+	return (
+		<Context.Provider value={data} >
+			{children}
+		</Context.Provider>
+	)
 }
 export const useApp = () => useContext(Context)
 export default Provider;

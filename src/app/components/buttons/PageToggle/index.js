@@ -8,7 +8,7 @@ import { useAuth } from "../../../context/authcontext";
 import axios from "axios";
 const PageToggle = () => {
     const { theme } = useApp();
-    const {user,setNotes} = useAuth();
+    const { user, setNotes } = useAuth();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const owner = user !== null ? user.username : null;
@@ -24,19 +24,15 @@ const PageToggle = () => {
             console.error('Error fetching notes:', error);
         }
     };
-    
-    
     const iconPath = theme === "dark" ? `${process.env.PUBLIC_URL}/assets/icons-dark` : `${process.env.PUBLIC_URL}/assets/icons-light`;
     const navigate = useNavigate();
     const [page, setPage] = useState("home");
-
     const togglePage = () => {
         setPage(page === "home" ? "create" : "home");
         fetchNotes();
     };
     const iconname = page === "home" ? "add.png" : "house.png";
     const buttonText = page === "home" ? "Create" : "Home";
-
     const onClickEvent = () => {
         togglePage();
         if (page === "home") {

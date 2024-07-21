@@ -18,6 +18,7 @@ const App = () => {
     const location = useLocation();
     const { setNotes, user } = useAuth();
     const owner = user !== null ? user.username : null;
+
     useEffect(() => {
         const fetchNotes = async () => {
             try {

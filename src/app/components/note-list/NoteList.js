@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/authcontext';
 const NoteList = () => {
 	const { notes, setNotes } = useAuth();
-	
+
 	const deleteNote = async (id) => {
 		try {
 			await axios.delete(`http://localhost:5000/notes/${id}`);
@@ -29,7 +29,7 @@ const NoteList = () => {
 			console.error('Düzenleme hata:', error);
 		}
 	};
-	
+
 	const { theme } = useApp();
 	const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
 	const classes = useStyles({ theme: currentTheme });
