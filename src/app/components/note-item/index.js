@@ -139,7 +139,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     <div className={classes.buttonContainer}>
                         <EditButton onClick={handleEdit} />
                         <DeleteButton onClick={() => onDelete(note.id)} />
-                        <ExpandButton onClick={handleExpand} />
+                        <ExpandButton onClick={handleExpand} isExpanded={isExpanded} />
                         <LockButton onClick={handleLock} lock={lockStatus} />
                         <PriorityButton onClick={handlePriority} priorityState={priority} />
                     </div>
