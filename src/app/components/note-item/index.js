@@ -17,13 +17,15 @@ export default function NoteItem({ note, onDelete, onEdit }) {
     const { theme, language } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const passwordText = language === 'en' ? "Password" : "Şifre";
-    const classes = useStyles({ theme: currentTheme });
     const [isEditing, setIsEditing] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
     const [title, setTitle] = useState(note.title);
     const [lockStatus, setLockStatus] = useState(note.lockStatus);
     const [password, setPassword] = useState(note.password);
     const [tempPassword, setTempPassword] = useState('');
     const owner = note.owner;
+
+    const classes = useStyles({ theme: currentTheme, isExpanded });
 
     const handleEdit = () => {
         setIsEditing(true);
@@ -70,7 +72,11 @@ export default function NoteItem({ note, onDelete, onEdit }) {
     const handlePriority = () => {
         const newPriority = priority >= 3 ? 1 : priority + 1;
         setPriority(newPriority);
-        onEdit(note.id, { id: note.id, title, content, priority: newPriority, lockStatus, owner , password });
+        onEdit(note.id, { id: note.id, title, content, priority: newPriority, lockStatus, owner, password });
+    };
+
+    const handleExpand = () => {
+        setIsExpanded(!isExpanded);
     };
 
     return (
@@ -88,8 +94,8 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     className={classes.textarea}
                 />
                 <div className={classes.buttonContainer}>
-                    <SaveButton onclick={handleSave} />
-                    <CancelButton onclick={handleCancel} />
+                    <SaveButton onClick={handleSave} />
+                    <CancelButton onClick={handleCancel} />
                 </div>
             </div>
         ) : (
@@ -105,7 +111,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                         onChange={(e) => setTempPassword(e.target.value)}
                     />
                     <div className={classes.buttonContainer}>
-                        <LockButton onclick={handleLock} lock={lockStatus} />
+                        <LockButton onClick={handleLock} lock={lockStatus} />
                     </div>
                 </div>
             ) : lockStatus === "create-password" ? (
@@ -120,7 +126,7 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                         onChange={(e) => setTempPassword(e.target.value)}
                     />
                     <div className={classes.buttonContainer}>
-                        <LockButton onclick={handleLock} lock={lockStatus} />
+                        <LockButton onClick={handleLock} lock={lockStatus} />
                     </div>
                 </div>
             ) : (
@@ -128,11 +134,11 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     <span className={classes.title}>{note.title}</span>
                     <span className={classes.content}>{note.content}</span>
                     <div className={classes.buttonContainer}>
-                        <EditButton onclick={handleEdit} />
-                        <DeleteButton onclick={() => onDelete(note.id)} />
-                        <ExpandButton />
-                        <LockButton onclick={handleLock} lock={lockStatus} />
-                        <PriorityButton onclick={handlePriority} priorityState={priority} />
+                        <EditButton onClick={handleEdit} />
+                        <DeleteButton onClick={() => onDelete(note.id)} />
+                        <ExpandButton onClick={handleExpand} />
+                        <LockButton onClick={handleLock} lock={lockStatus} />
+                        <PriorityButton onClick={handlePriority} priorityState={priority} />
                     </div>
                 </div>
             )

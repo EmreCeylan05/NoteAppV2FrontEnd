@@ -4,23 +4,23 @@ const useStyles = createUseStyles({
     noteFrame: {
         backgroundColor: props => props.theme.primary,
         color: props => props.theme.text,
-        maxWidth: '480px',
+        maxWidth: props => (props.isExpanded ? '960px' : '480px'),
         width: '100%',
-        margin : '10px',
+        margin: '10px',
         padding: '20px',
         borderRadius: '8px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-        display : 'flex',
-        flexDirection : 'column',
-        minHeight : '320px',
-        maxHeight : '320px',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: props => (props.isExpanded ? '640px' : '320px'),
+        maxHeight: props => (props.isExpanded ? '640px' : '320px'),
         minWidth: '200px',
         flex: '1 1 auto',
+        transition: 'all 0.3s ease',
         '@media (max-width: 768px)': {
             maxWidth: '100%',
             padding: '15px',
         },
-
         '@media (max-width: 480px)': {
             padding: '10px',
         }
@@ -33,14 +33,14 @@ const useStyles = createUseStyles({
     content: {
         fontSize: '1rem',
         marginBottom: '20px',
-        height: '30vb',
+        height: '90%',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'break-spaces',
     },
     buttonContainer: {
         display: 'flex',
-        width : '100%',
+        width: '100%',
         justifyContent: 'flex-end',
     },
     input: {

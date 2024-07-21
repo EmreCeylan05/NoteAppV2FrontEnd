@@ -20,7 +20,7 @@ export default function NewNoteContainer({ onAddNote }) {
     const priority = 1;
     const { user } = useAuth();
     const owner = user.username;
-    const password = undefined;
+    const password = null;
     const handleCancel = () => {
         setTitle('');
         setContent('');
@@ -45,6 +45,6 @@ export default function NewNoteContainer({ onAddNote }) {
     return <div className={classes.container}>
         <input type="text" className={classes.input} placeholder={placeholderTitle} value={title} onChange={(e) => setTitle(e.target.value)} />
         <textarea className={classes.textarea} placeholder={placeholderContent} value={content} onChange={(e) => setContent(e.target.value)} />
-        <div className={classes.buttonContainer}> <CancelButton onclick={handleCancel} /> <SaveButton onclick={handleSubmit} /> </div>
+        <div className={classes.buttonContainer}> <CancelButton onClick={handleCancel} /> <SaveButton onClick={handleSubmit} /> </div>
     </div>
 }

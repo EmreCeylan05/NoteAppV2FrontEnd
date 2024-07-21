@@ -32,7 +32,7 @@ export default function SearchBar() {
 	return (
 		<div className={classes.searchBar}>
 			<input type="text" className={classes.input} placeholder={placeholder} value={query} onChange={(e) => setQuery(e.target.value)}/>
-			<SearchButton onclick={handleSearch}/>
+			<SearchButton onClick={handleSearch}/>
 		</div>
 	);
 }

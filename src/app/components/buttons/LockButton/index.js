@@ -4,14 +4,14 @@ import darkTheme from '../../../themes/variants/dark/index';
 import lightTheme from '../../../themes/variants/light/index';
 import useStyles from '../stylesheet';
 
-export default function LockButton({ onclick, lock }) {
+export default function LockButton({ onClick, lock }) {
     const { theme } = useApp();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const iconPath = theme === "dark" ? `${process.env.PUBLIC_URL}/assets/icons-dark` : `${process.env.PUBLIC_URL}/assets/icons-light`;
     const iconName = lock === "locked" ? "lock.png" : "unlock.png";
     return (
-        <button className={classes.button} onClick={onclick}>
+        <button className={classes.button} onClick={onClick}>
             <img
                 alt="Lock"
                 src={`${iconPath}/${iconName}`}

@@ -73,9 +73,9 @@ export default function LoginContainer() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <LogInButton onclick={handleLogin} />
+            <LogInButton onClick={handleLogin} />
             <span>{middleText}</span>
-            <RegisterButton onclick={handleRegister} />
+            <RegisterButton onClick={handleRegister} />
         </div>
     );
 }
