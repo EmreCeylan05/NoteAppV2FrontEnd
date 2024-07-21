@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
 import darkTheme from '../../themes/variants/dark/index';
 import lightTheme from '../../themes/variants/light/index';
-import { useState } from "react";
 import SearchButton from "../buttons/SearchButton";
 import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 import useStyles from "./stylesheet";
 import locales from "../../locales";
+
 export default function SearchBar() {
-    const {setNotes,user} =useAuth();
+    const { setNotes, user } = useAuth();
     const [query, setQuery] = useState('');
-    const { theme, language} = useApp();
+    const [showFixedInput, setShowFixedInput] = useState(false);
+    const { theme, language } = useApp();
     const translations = locales[language] || locales.en;
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-	const placeholder = translations.searchPlaceHolder;
+    const placeholder = translations.searchPlaceHolder;
 
-    const owner=user.username;
-	const handleSearch = async () => {
+    const owner = user.username;
+
+    const handleSearch = async () => {
         try {
             const response = await axios.get(`http://localhost:5000/search`, {
                 params: {
@@ -31,10 +33,35 @@ export default function SearchBar() {
             console.error("Error fetching notes:", error);
         }
     };
-	return (
-		<div className={classes.searchBar}>
-			<input type="text" className={classes.input} placeholder={placeholder} value={query} onChange={(e) => setQuery(e.target.value)}/>
-			<SearchButton onClick={handleSearch}/>
-		</div>
-	);
+
+    const handleButtonClick = () => {
+        setShowFixedInput(!showFixedInput);
+        handleSearch();
+    };
+
+    return (
+        <>
+            <div className={classes.searchBar}>
+                <input
+                    type="text"
+                    className={classes.input}
+                    placeholder={placeholder}
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
+                <SearchButton onClick={handleButtonClick} />
+            </div>
+            {showFixedInput && (
+                <div className={classes.fixedInputContainer}>
+                    <input
+                        type="text"
+                        className={classes.fixedInput}
+                        placeholder={placeholder}
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                </div>
+            )}
+        </>
+    );
 }
