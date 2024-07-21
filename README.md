@@ -9,13 +9,13 @@ Bu proje, basit bir tasarımla not ekleme, düzenleme, silme ve arama özellikle
 - **Not Arama:** Notlar arasında arama yaparak istedikleri notu hızlıca bulabilirler.
 - **Not Kilitleme:** Notlar kullanıcı isteğine göre şifreyle kilitlenebilir.
 - **Not Sıralama:** Notlar arasında önem sırası 1 ile 3 olacak şekilde kullanıcılar istedikleri önem sırasını notlarına verebilirler.
-
+- **Kullanıcı Sistemi** Kullanıcı sistemiyle beraber veritabanındaki notlar sadece ait oldukları kullanıcı tarafından kullanılabilirler.
 ## Kurulum
 Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 1. **Depoyu Klonlayın:**
    ```bash
    git clone https://github.com/EmreCeylan05/noteAppV2FrontEnd.git
-   cd noteAppFrontEnd
+   cd noteAppV2FrontEnd/
 2. **Back-end için aşağıdaki depoyu klonlayın**
     ```bash
     git clone https://github.com/EmreCeylan05/noteAppBackEnd.git
@@ -32,7 +32,7 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip 
     node index.js
 5. **Bağımlılıkları kurun**
     ```bash
-    cd noteAppFrontEnd
+    cd noteAppV2FrontEnd/
     npm install
 6. **Not uygulamasını çalıştırın**
     ```bash
