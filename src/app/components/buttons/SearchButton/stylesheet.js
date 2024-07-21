@@ -18,8 +18,5 @@ const useStyles = createUseStyles({
         },
         userSelect : "none",
     },
-    usertext:{
-        color : "#FF3737"
-    }
 });
 export default useStyles;
