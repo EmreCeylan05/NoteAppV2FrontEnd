@@ -11,7 +11,7 @@ export default function LogOutButton() {
     const { setUser } = useAuth();
     const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
-    const iconPath = theme === "dark" ? `${process.env.PUBLIC_URL}/assets/icons-dark` : `${process.env.PUBLIC_URL}/assets/icons-light`;
+    const iconPath = `${process.env.PUBLIC_URL}/assets/icons`;
     const logout = () => {
         setUser(null);
     }
