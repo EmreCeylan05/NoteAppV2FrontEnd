@@ -4,8 +4,8 @@ import locales from '../../locales/index';
 import { useApp } from '../../context/appcontext';
 import { useAuth } from '../../context/authcontext';
 import { Buttons } from '../index';
-const { BurgerButton, SwitchTheme, SwitchLanguage, PageToggle, LogOutButton } = Buttons;
 export default function NavBar() {
+    const { BurgerButton, SwitchTheme, SwitchLanguage, PageToggle, LogOutButton } = Buttons;
     const { theme, currentTheme, isMenuOpen, language } = useApp();
     const { user } = useAuth();
     const classes = useStyles({ theme: currentTheme });

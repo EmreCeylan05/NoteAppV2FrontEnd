@@ -3,8 +3,8 @@ import { useApp } from "../../context/appcontext";
 import { Buttons } from "../index.js";
 import useStyles from './stylesheet';
 import locales from '../../locales/index.js';
-const { EditButton, DeleteButton, ExpandButton, LockButton, SaveButton, CancelButton, PriorityButton } = Buttons;
 export default function NoteItem({ note, onDelete, onEdit }) {
+    const { EditButton, DeleteButton, ExpandButton, LockButton, SaveButton, CancelButton, PriorityButton } = Buttons;
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);
     const { currentTheme, language } = useApp();

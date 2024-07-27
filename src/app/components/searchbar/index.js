@@ -6,8 +6,8 @@ import axios from "axios";
 import useStyles from "./stylesheet";
 import locales from "../../locales";
 import constants from "../../constants/index.js";
-const { SearchButton } = Buttons;
 export default function SearchBar() {
+    const { SearchButton } = Buttons;
     const { setNotes, user } = useAuth();
     const [query, setQuery] = useState('');
     const [showFixedInput, setShowFixedInput] = useState(false);

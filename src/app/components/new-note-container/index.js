@@ -4,8 +4,8 @@ import { useAuth } from "../../context/authcontext";
 import { Buttons } from "../index.js";
 import useStyles from './stylesheet';
 import locales from '../../locales/index.js';
-const { CancelButton, SaveButton } = Buttons;
 export default function NewNoteContainer({ onAddNote }) {
+    const { CancelButton, SaveButton } = Buttons;
     const { currentTheme, language } = useApp();
     const classes = useStyles({ theme: currentTheme });
     const translations = locales[language] || locales.en;

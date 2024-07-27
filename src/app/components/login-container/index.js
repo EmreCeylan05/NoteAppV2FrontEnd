@@ -7,8 +7,8 @@ import useStyles from './stylesheet';
 import axios from 'axios';
 import locales from '../../locales';
 import constants from "../../constants";
-const { LogInButton, RegisterButton } = Buttons;
 export default function LoginContainer() {
+    const { LogInButton, RegisterButton } = Buttons;
     const { currentTheme, language } = useApp();
     const { setUser, user, setNotes } = useAuth();
     const [username, setUsername] = useState('');

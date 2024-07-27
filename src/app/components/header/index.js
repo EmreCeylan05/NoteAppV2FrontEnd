@@ -4,8 +4,8 @@ import locales from '../../locales/index.js';
 import { useApp } from "../../context/appcontext.js";
 import { useAuth } from "../../context/authcontext.js";
 import { Buttons, SearchBar } from '../index.js';
-const { SwitchLanguage, SwitchTheme, LogOutButton, BurgerButton, PageToggle } = Buttons;
 export default function Header() {
+    const { SwitchLanguage, SwitchTheme, LogOutButton, BurgerButton, PageToggle } = Buttons;
     const { user } = useAuth();
     const { currentTheme, language } = useApp();
     const classes = useStyles({ theme: currentTheme });
