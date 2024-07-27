@@ -29,12 +29,10 @@ const App = () => {
                 console.error('Error fetching notes:', error);
             }
         };
-
-
         if (location.pathname === '/') {
             fetchNotes();
         }
-    }, [location.pathname, setNotes]);
+    }, [location.pathname, setNotes, owner]);
     return (
         <div className={classes.container}>
             <Header />
