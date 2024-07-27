@@ -1,7 +1,5 @@
 import React from 'react';
 import useStyles from './stylesheet';
-import darkTheme from '../../themes/variants/dark';
-import lightTheme from '../../themes/variants/light';
 import { useApp } from '../../context/appcontext';
 import BurgerButton from '../buttons/BurgerButton';
 import SwitchTheme from '../buttons/SwitchTheme';
@@ -12,9 +10,8 @@ import locales from '../../locales/index';
 import { useAuth } from '../../context/authcontext';
 
 export default function NavBar() {
-    const { theme, isMenuOpen, language } = useApp();
+    const { theme, currentTheme, isMenuOpen, language } = useApp();
     const { user } = useAuth();
-    const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const translations = locales[language] || locales.en;
     return (

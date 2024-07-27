@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
-import darkTheme from '../../themes/variants/dark/index';
-import lightTheme from '../../themes/variants/light/index';
 import SearchButton from "../buttons/SearchButton";
 import axios from "axios";
 import { useAuth } from "../../context/authcontext";
@@ -12,12 +10,10 @@ export default function SearchBar() {
     const { setNotes, user } = useAuth();
     const [query, setQuery] = useState('');
     const [showFixedInput, setShowFixedInput] = useState(false);
-    const { theme, language } = useApp();
+    const { currentTheme, language } = useApp();
     const translations = locales[language] || locales.en;
-    const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const placeholder = translations.searchPlaceHolder;
-
     const owner = user.username;
 
     const handleSearch = async () => {

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
-import darkTheme from '../../themes/variants/dark/index';
-import lightTheme from '../../themes/variants/light/index';
 import useStyles from './stylesheet';
 import { useAuth } from "../../context/authcontext";
 import SaveButton from "../buttons/SaveButton";
@@ -9,8 +7,7 @@ import CancelButton from "../buttons/CancelButton";
 import locales from '../../locales/index.js';
 
 export default function NewNoteContainer({ onAddNote }) {
-    const { theme, language } = useApp();
-    const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
+    const { currentTheme, language } = useApp();
     const classes = useStyles({ theme: currentTheme });
     const translations = locales[language] || locales.en;
     const placeholderTitle = translations.titlePlaceholder;

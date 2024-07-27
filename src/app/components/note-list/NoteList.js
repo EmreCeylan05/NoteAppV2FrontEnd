@@ -1,8 +1,6 @@
 import React from 'react';
 import NoteItem from '../note-item/index';
 import { useApp } from '../../context/appcontext';
-import darkTheme from '../../themes/variants/dark';
-import lightTheme from '../../themes/variants/light';
 import useStyles from './stylesheet';
 import axios from 'axios';
 import { useAuth } from '../../context/authcontext';
@@ -30,8 +28,7 @@ const NoteList = () => {
 		}
 	};
 
-	const { theme } = useApp();
-	const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
+	const { currentTheme } = useApp();
 	const classes = useStyles({ theme: currentTheme });
 	return (
 		<div className={classes.NoteList}>

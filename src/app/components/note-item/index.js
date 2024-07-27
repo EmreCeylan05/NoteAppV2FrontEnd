@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
-import darkTheme from '../../themes/variants/dark/index';
-import lightTheme from '../../themes/variants/light/index';
 import useStyles from './stylesheet';
 import EditButton from "../buttons/EditButton/index.js";
 import DeleteButton from "../buttons/DeleteButton/index.js";
@@ -15,9 +13,8 @@ import locales from '../../locales/index.js';
 export default function NoteItem({ note, onDelete, onEdit }) {
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);
-    const { theme, language } = useApp();
-    const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
-    const { passwordPlaceholder, createPassword, enterPassword, incorrectPassword, enterAPassword } = locales[language];
+    const { currentTheme, language } = useApp();
+    const { passwordPlaceholder, createPassword, incorrectPassword, enterAPassword } = locales[language];
     const [isEditing, setIsEditing] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [title, setTitle] = useState(note.title);

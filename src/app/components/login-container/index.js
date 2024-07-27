@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
 import { useAuth } from "../../context/authcontext";
-import darkTheme from '../../themes/variants/dark/index';
-import lightTheme from '../../themes/variants/light/index';
 import useStyles from './stylesheet';
 import LogInButton from "../buttons/LogInButton/";
 import RegisterButton from "../buttons/RegisterButton";
@@ -11,11 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import locales from '../../locales';
 
 export default function LoginContainer() {
-    const { theme, language } = useApp();
+    const { currentTheme, language } = useApp();
     const { setUser, user, setNotes } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const currentTheme = theme === 'dark' ? darkTheme : lightTheme;
     const classes = useStyles({ theme: currentTheme });
     const translations = locales[language] || locales.en;
     const middleText = translations.or;
