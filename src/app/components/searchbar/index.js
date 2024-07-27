@@ -5,6 +5,7 @@ import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 import useStyles from "./stylesheet";
 import locales from "../../locales";
+import constants from "../../constants/index.js";
 
 export default function SearchBar() {
     const { setNotes, user } = useAuth();
@@ -15,10 +16,10 @@ export default function SearchBar() {
     const classes = useStyles({ theme: currentTheme });
     const placeholder = translations.searchPlaceHolder;
     const owner = user.username;
-
+    const server = constants.server;
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/search`, {
+            const response = await axios.get(`${server}/search`, {
                 params: {
                     query: query,
                     owner: owner

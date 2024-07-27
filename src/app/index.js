@@ -9,17 +9,18 @@ import NavBar from './components/navbar/index.js';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import constants from './constants/index.js';
 const App = () => {
     const { currentTheme } = useApp();
     const classes = useStyles({ theme: currentTheme });
     const location = useLocation();
     const { setNotes, user } = useAuth();
     const owner = user !== null ? user.username : null;
-
+    const server = constants.server;
     useEffect(() => {
         const fetchNotes = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/notes', {
+                const response = await axios.get(`${server}/notes`, {
                     params: {
                         owner: owner
                     }
@@ -32,7 +33,7 @@ const App = () => {
         if (location.pathname === '/') {
             fetchNotes();
         }
-    }, [location.pathname, setNotes, owner]);
+    }, [location.pathname, setNotes, owner ,server]);
     return (
         <div className={classes.container}>
             <Header />

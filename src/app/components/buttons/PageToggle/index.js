@@ -4,14 +4,16 @@ import { useApp } from "../../../context/appcontext";
 import useStyles from '../stylesheet';
 import { useAuth } from "../../../context/authcontext";
 import axios from "axios";
+import constants from "../../../constants";
 const PageToggle = () => {
     const { theme, currentTheme } = useApp();
     const { user, setNotes } = useAuth();
     const classes = useStyles({ theme: currentTheme });
     const owner = user !== null ? user.username : null;
+    const server = constants.server;
     const fetchNotes = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/notes', {
+            const response = await axios.get(`${server}/notes`, {
                 params: {
                     owner: owner
                 }

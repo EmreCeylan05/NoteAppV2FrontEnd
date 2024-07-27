@@ -7,6 +7,7 @@ import RegisterButton from "../buttons/RegisterButton";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import locales from '../../locales';
+import constants from "../../constants";
 
 export default function LoginContainer() {
     const { currentTheme, language } = useApp();
@@ -17,10 +18,10 @@ export default function LoginContainer() {
     const translations = locales[language] || locales.en;
     const middleText = translations.or;
     const navigate = useNavigate();
-
+    const server = constants.server;
     const fetchNotes = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/notes?query=${user?.username}`);
+            const response = await axios.get(`${server}/notes?query=${user?.username}`);
             setNotes(response.data);
         } catch (error) {
             console.error('Error fetching notes:', error);
@@ -29,7 +30,7 @@ export default function LoginContainer() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await axios.post(`${server}/login`, {
                 username,
                 password
             });
@@ -45,7 +46,7 @@ export default function LoginContainer() {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/register', {
+            const response = await axios.post(`${server}/register`, {
                 username,
                 password
             });
