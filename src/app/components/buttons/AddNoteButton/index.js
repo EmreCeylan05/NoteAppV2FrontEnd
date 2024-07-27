@@ -8,6 +8,7 @@ export default function AddNoteButton() {
 
     return <button className={classes.button}>
         <img
+            alt="AddNote"
             src={`${iconPath}/add.png`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
         ></img>
