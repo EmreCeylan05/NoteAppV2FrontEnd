@@ -1,15 +1,10 @@
 import React from "react";
 import useStyles from "./stylesheet.js";
-import { useAuth } from "../../context/authcontext.js";
-import { useApp } from "../../context/appcontext.js";
-import SwitchLanguage from "../buttons/SwitchLanguage/index.js";
-import SwitchTheme from "../buttons/SwitchTheme/index.js";
-import LogOutButton from "../buttons/LogOutButton/index.js";
-import SearchBar from "../searchbar/index.js";
-import BurgerButton from "../buttons/BurgerButton/index.js";
-import PageToggle from "../buttons/PageToggle/index.js";
 import locales from '../../locales/index.js';
-
+import { useApp } from "../../context/appcontext.js";
+import { useAuth } from "../../context/authcontext.js";
+import { Buttons, SearchBar } from '../index.js';
+const { SwitchLanguage, SwitchTheme, LogOutButton, BurgerButton, PageToggle } = Buttons;
 export default function Header() {
     const { user } = useAuth();
     const { currentTheme, language } = useApp();

@@ -1,10 +1,10 @@
 import React from 'react';
-import NoteItem from '../note-item/index';
-import { useApp } from '../../context/appcontext';
 import useStyles from './stylesheet';
 import axios from 'axios';
-import { useAuth } from '../../context/authcontext';
 import constants from '../../constants';
+import { useApp } from '../../context/appcontext';
+import { useAuth } from '../../context/authcontext';
+import { NoteItem } from '../index';
 const NoteList = () => {
 	const { notes, setNotes } = useAuth();
 	const server = constants.server;

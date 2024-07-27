@@ -1,4 +1,4 @@
-import LoginContainer from '../../components/login-container';
+import {LoginContainer} from '../../components/index';
 import React from "react";
 import useStyles from './stylesheet';
 

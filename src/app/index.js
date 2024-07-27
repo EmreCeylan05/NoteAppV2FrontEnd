@@ -1,14 +1,11 @@
-import React from 'react';
-import AppProvider from './context/appcontext.js';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import AppProvider, { useApp } from './context/appcontext.js';
 import AuthProvider, { useAuth } from './context/authcontext.js';
 import useStyles from './stylesheet.js';
-import Header from './components/header/index.js';
-import { useApp } from './context/appcontext.js';
+import { Header, NavBar } from './components/index.js';
 import Navigation from './navigation/index.js';
-import NavBar from './components/navbar/index.js';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import axios from 'axios';
 import constants from './constants/index.js';
 const App = () => {
     const { currentTheme } = useApp();
@@ -33,7 +30,7 @@ const App = () => {
         if (location.pathname === '/') {
             fetchNotes();
         }
-    }, [location.pathname, setNotes, owner ,server]);
+    }, [location.pathname, setNotes, owner, server]);
     return (
         <div className={classes.container}>
             <Header />

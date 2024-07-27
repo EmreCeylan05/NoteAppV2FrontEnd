@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
 import { useAuth } from "../../context/authcontext";
-import useStyles from './stylesheet';
-import LogInButton from "../buttons/LogInButton/";
-import RegisterButton from "../buttons/RegisterButton";
-import axios from 'axios';
+import { Buttons } from '../index';
 import { useNavigate } from 'react-router-dom';
+import useStyles from './stylesheet';
+import axios from 'axios';
 import locales from '../../locales';
 import constants from "../../constants";
-
+const { LogInButton, RegisterButton } = Buttons;
 export default function LoginContainer() {
     const { currentTheme, language } = useApp();
     const { setUser, user, setNotes } = useAuth();

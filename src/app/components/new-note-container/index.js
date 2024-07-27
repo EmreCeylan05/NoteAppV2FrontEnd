@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
-import useStyles from './stylesheet';
 import { useAuth } from "../../context/authcontext";
-import SaveButton from "../buttons/SaveButton";
-import CancelButton from "../buttons/CancelButton";
+import { Buttons } from "../index.js";
+import useStyles from './stylesheet';
 import locales from '../../locales/index.js';
-
+const { CancelButton, SaveButton } = Buttons;
 export default function NewNoteContainer({ onAddNote }) {
     const { currentTheme, language } = useApp();
     const classes = useStyles({ theme: currentTheme });

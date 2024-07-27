@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useApp } from "../../../context/appcontext";
-import useStyles from '../stylesheet';
 import { useAuth } from "../../../context/authcontext";
+import useStyles from '../stylesheet';
 import axios from "axios";
 import constants from "../../../constants";
 const PageToggle = () => {

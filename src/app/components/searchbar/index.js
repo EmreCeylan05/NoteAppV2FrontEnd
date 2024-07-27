@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
-import SearchButton from "../buttons/SearchButton";
-import axios from "axios";
 import { useAuth } from "../../context/authcontext";
+import { Buttons } from "../index.js";
+import axios from "axios";
 import useStyles from "./stylesheet";
 import locales from "../../locales";
 import constants from "../../constants/index.js";
-
+const { SearchButton } = Buttons;
 export default function SearchBar() {
     const { setNotes, user } = useAuth();
     const [query, setQuery] = useState('');

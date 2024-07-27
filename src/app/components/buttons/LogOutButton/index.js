@@ -1,7 +1,7 @@
 import React from "react";
 import { useApp } from "../../../context/appcontext";
-import useStyles from '../stylesheet';
 import { useAuth } from "../../../context/authcontext";
+import useStyles from '../stylesheet';
 import locales from '../../../locales/index';
 export default function LogOutButton() {
     const { currentTheme, language } = useApp();

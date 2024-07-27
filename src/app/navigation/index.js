@@ -1,7 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from "../pages/home";
-import Create from '../pages/create/index';
-import Login from "../pages/login";
+import {Create,Home,Login} from "../pages/index";
 import { useAuth } from "../context/authcontext";
 const Navigation = () => {
     const { user } = useAuth();

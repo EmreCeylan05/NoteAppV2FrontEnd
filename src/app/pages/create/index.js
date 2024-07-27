@@ -1,6 +1,6 @@
 import React from "react";
 import useStyles from './stylesheet';
-import NewNoteContainer from '../../components/new-note-container';
+import {NewNoteContainer} from '../../components/index';
 import axios from "axios";
 import { useAuth } from "../../context/authcontext";
 import constants from "../../constants";

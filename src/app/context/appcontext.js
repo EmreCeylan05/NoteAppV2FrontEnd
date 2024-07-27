@@ -1,5 +1,4 @@
-import { createContext, useContext } from "react";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import themes from '../themes';
 const Context = createContext();
 const Provider = ({ children }) => {

@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
+import { Buttons } from "../index.js";
 import useStyles from './stylesheet';
-import EditButton from "../buttons/EditButton/index.js";
-import DeleteButton from "../buttons/DeleteButton/index.js";
-import ExpandButton from "../buttons/ExpandButton/index.js";
-import LockButton from "../buttons/LockButton/index.js";
-import SaveButton from "../buttons/SaveButton/index.js";
-import CancelButton from "../buttons/CancelButton/index.js";
-import PriorityButton from "../buttons/PriorityButton/index.js";
 import locales from '../../locales/index.js';
-
+const { EditButton, DeleteButton, ExpandButton, LockButton, SaveButton, CancelButton, PriorityButton } = Buttons;
 export default function NoteItem({ note, onDelete, onEdit }) {
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);

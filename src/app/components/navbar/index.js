@@ -1,14 +1,10 @@
 import React from 'react';
 import useStyles from './stylesheet';
-import { useApp } from '../../context/appcontext';
-import BurgerButton from '../buttons/BurgerButton';
-import SwitchTheme from '../buttons/SwitchTheme';
-import SwitchLanguage from '../buttons/SwitchLanguage';
-import PageToggle from '../buttons/PageToggle';
-import LogoutButton from '../buttons/LogOutButton';
 import locales from '../../locales/index';
+import { useApp } from '../../context/appcontext';
 import { useAuth } from '../../context/authcontext';
-
+import { Buttons } from '../index';
+const { BurgerButton, SwitchTheme, SwitchLanguage, PageToggle, LogOutButton } = Buttons;
 export default function NavBar() {
     const { theme, currentTheme, isMenuOpen, language } = useApp();
     const { user } = useAuth();
@@ -34,7 +30,7 @@ export default function NavBar() {
                         <span>{translations.togglePage}</span>
                     </div>
                     <div className={classes.buttonLine}>
-                        <LogoutButton />
+                        <LogOutButton />
                     </div></>}
             </div>
         </div>
