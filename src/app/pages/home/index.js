@@ -1,5 +1,5 @@
 import React from "react";
-import {NoteList} from "../../components/index";
+import { NoteList } from "../../components/index";
 import { useAuth } from "../../context/authcontext";
 export default function Home() {
 	const { note } = useAuth();

@@ -8,15 +8,15 @@ const Provider = ({ children }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState("closed");
 	const currentTheme = themes[theme];
 
-	const toggleTheme =()=>{
+	const toggleTheme = () => {
 		setTheme(theme === "light" ? "dark" : "light");
 	}
-	const toggleLanguage =()=>{
+	const toggleLanguage = () => {
 		setLanguage(language === "tr" ? "en" : "tr");
 	}
 	const toggleMenu = () => {
-        setIsMenuOpen(isMenuOpen === "closed" ? "open" : "closed");
-    };
+		setIsMenuOpen(isMenuOpen === "closed" ? "open" : "closed");
+	};
 
 	const data = {
 		language,
