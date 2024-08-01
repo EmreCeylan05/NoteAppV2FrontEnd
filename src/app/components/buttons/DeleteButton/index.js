@@ -9,8 +9,8 @@ export default function DeleteButton({ onClick }) {
     return (
         <button className={classes.button} onClick={onClick} >
             <img
-                src={`${iconPath}/bin.png`}
                 style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+                src={`${iconPath}/bin.png`}
                 alt="Delete"
             />
         </button>

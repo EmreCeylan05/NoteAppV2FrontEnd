@@ -9,10 +9,10 @@ export default function SwitchTheme() {
 	return (
 		<button className={classes.button} onClick={toggleTheme}>
 			<img
-				src={`${iconPath}/toggleTheme.png`}
-				alt="Theme Icon"
 				style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+				src={`${iconPath}/toggleTheme.png`}
 				className={classes.img}
+				alt="Theme Icon"
 			/>
 		</button>
 	);

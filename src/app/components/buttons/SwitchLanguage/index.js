@@ -8,10 +8,10 @@ export default function SwitchLanguage() {
 	return (
 		<button className={classes.button} onClick={toggleLanguage}>
 			<img
-				src={`${iconPath}/translate.png`}
-				alt="Theme Icon"
 				style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+				src={`${iconPath}/translate.png`}
 				className={classes.img}
+				alt="Theme Icon"
 			/>
 		</button>
 	);

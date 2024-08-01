@@ -9,8 +9,8 @@ export default function SearchButton({ onClick }) {
     return (
         <button className={classes.button} onClick={onClick} >
             <img
-                src={`${iconPath}/magnifier.png`}
                 style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+                src={`${iconPath}/magnifier.png`}
                 alt="Search"
             />
         </button>

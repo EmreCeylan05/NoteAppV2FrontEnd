@@ -2,14 +2,13 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
     NoteList: {
-        display: 'flex',
-        marginTop: '10vb',
-        width: '100%',
-        flexDirection: 'row',
         justifyContent: 'center',
+        flexDirection: 'row',
+        marginTop: '10vb',
         flexWrap: 'wrap',
+        display: 'flex',
+        width: '100%',
         gap: '5vb',
     }
-
 })
 export default useStyles

@@ -2,69 +2,69 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     searchBar: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '25em',
         backgroundColor: props => props.theme.secondary,
-        color: props => props.theme.text,
-        transition: 'all 0.3s ease',
-        padding: '1em 1em',
-        border: 'none',
-        borderRadius: '25px',
-        cursor: 'pointer',
-        alignItems: 'center',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        color: props => props.theme.text,
+        justifyContent: 'space-between',
+        transition: 'all 0.3s ease',
+        borderRadius: '25px',
+        flexDirection: 'row',
+        alignItems: 'center',
         marginInline: '3px',
+        padding: '1em 1em',
+        cursor: 'pointer',
+        display: 'flex',
+        border: 'none',
+        width: '25em',
         height: '25%',
         '@media (max-width: 700px)': {
-            width: '4em',
-            height: '35%',
-            padding: '0.5em',
             justifyContent: 'center',
+            padding: '0.5em',
+            height: '35%',
+            width: '4em',
         }
-    },
-    img: {
-        paddingInline: '0.5em',
     },
     input: {
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
         transition: 'all 0.3s ease',
-        border: 'none',
         padding: '1em 1em',
+        border: 'none',
         width: '80%',
+        '@media (max-width: 700px)': {
+            display: 'none',
+        },
         '&:focus': {
             outline: 'none',
         },
-        '@media (max-width: 700px)': {
-            display: 'none',
-        }
     },
     fixedInputContainer: {
-        position: 'fixed',
-        top: '6em',
-        left: '7%',
-        width: '80%',
         backgroundColor: props => props.theme.secondary,
-        padding: '1em',
-        marginTop: '1em',
         boxShadow: '0 -2px 5px rgba(0, 0, 0, 0.2)',
         borderRadius: '25px',
+        position: 'fixed',
+        marginTop: '1em',
+        padding: '1em',
+        width: '80%',
+        left: '7%',
+        top: '6em',
         '@media (min-width: 701px)': {
             display: 'none',
         }
     },
     fixedInput: {
-        width: '80%',
-        padding: '0.5em',
         backgroundColor: props => props.theme.secondary,
         color: props => props.theme.text,
+        padding: '0.5em',
         border: 'none',
+        width: '80%',
         '&:focus': {
             outline: 'none',
         },
-    }
+    },
+    img: {
+        paddingInline: '0.5em',
+    },
 });
 
 export default useStyles;

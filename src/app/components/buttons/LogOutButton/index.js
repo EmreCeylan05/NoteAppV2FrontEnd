@@ -16,8 +16,8 @@ export default function LogOutButton() {
 
     return <button className={classes.button} onClick={logout}>
         <img
-            src={`${iconPath}/logout.png`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+            src={`${iconPath}/logout.png`}
             alt={"exit"}
         />
         <span className={classes.usertext}>{loggedinText}</span>

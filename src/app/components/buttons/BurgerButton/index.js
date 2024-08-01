@@ -7,9 +7,9 @@ export default function BurgerButton() {
     const iconPath = theme === "dark" ? `${process.env.PUBLIC_URL}/assets/icons-dark` : `${process.env.PUBLIC_URL}/assets/icons-light`;
     return <button className={classes.button} onClick={toggleMenu}>
         <img
+            style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
             src={`${iconPath}/burgerBar.png`}
             alt="Menu"
-            style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
         ></img>
     </button>
 }

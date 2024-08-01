@@ -8,9 +8,9 @@ export default function EditButton({ onClick }) {
 
     return <button className={classes.button} onClick={onClick}>
         <img
-            alt="Edit"
-            src={`${iconPath}/pen.png`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+            src={`${iconPath}/pen.png`}
+            alt="Edit"
         ></img>
     </button>
 }

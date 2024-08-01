@@ -8,9 +8,9 @@ export default function SaveButton({ onClick }) {
 
     return <button className={classes.button} onClick={onClick}>
         <img
-            alt="save"
-            src={`${iconPath}/save.png`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+            src={`${iconPath}/save.png`}
+            alt="save"
         ></img>
     </button>
 }

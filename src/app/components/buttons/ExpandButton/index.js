@@ -8,9 +8,9 @@ export default function ExpandButton({ onClick, isExpanded }) {
     const iconName = isExpanded === false ? "downArrow.png" : "upArrow.png";
     return <button className={classes.button} onClick={onClick}>
         <img
-            alt="Expand"
-            src={`${iconPath}/${iconName}`}
             style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+            src={`${iconPath}/${iconName}`}
+            alt="Expand"
         ></img>
     </button>
 }   

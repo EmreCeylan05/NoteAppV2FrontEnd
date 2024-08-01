@@ -2,14 +2,14 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
     SignPage: {
-        display: 'flex',
-        marginTop: '10vb',
-        width: '100%',
-        flexDirection: 'row',
         justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '5vb',
+        flexDirection: 'row',
         paddingTop: '1em',
+        marginTop: '10vb',
+        flexWrap: 'wrap',
+        display: 'flex',
+        width: '100%',
+        gap: '5vb',
     }
 })
 export default useStyles;

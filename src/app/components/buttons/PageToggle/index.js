@@ -44,8 +44,8 @@ const PageToggle = () => {
     return (
         <button className={classes.button} onClick={onClickEvent}>
             <img
-                src={`${iconPath}/${iconname}`}
                 style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+                src={`${iconPath}/${iconname}`}
                 alt={buttonText}
             />
         </button>

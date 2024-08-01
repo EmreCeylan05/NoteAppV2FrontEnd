@@ -10,9 +10,9 @@ export default function LockButton({ onClick, lock }) {
     return (
         <button className={classes.button} onClick={onClick}>
             <img
-                alt="Lock"
-                src={`${iconPath}/${iconName}`}
                 style={{ verticalAlign: 'middle', width: '20px', height: '20px' }}
+                src={`${iconPath}/${iconName}`}
+                alt="Lock"
             />
         </button>
     );

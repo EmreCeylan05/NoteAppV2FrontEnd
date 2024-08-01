@@ -3,17 +3,17 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
     button: {
         backgroundColor: props => props.theme.primary,
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         color: props => props.theme.text,
         transition: 'all 0.3s ease',
-        border: 'none',
-        padding: '1em 1em',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: '5px',
         marginInline: '3px',
+        padding: '1em 1em',
+        cursor: 'pointer',
+        display: 'flex',
+        border: 'none',
         '&:hover': {
             backgroundColor: props => props.theme.secondary,
         },
