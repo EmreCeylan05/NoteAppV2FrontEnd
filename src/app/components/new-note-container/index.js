@@ -3,12 +3,10 @@ import { useApp } from "../../context/appcontext";
 import { useAuth } from "../../context/authcontext";
 import { Buttons } from "../index.js";
 import useStyles from './stylesheet';
-import locales from '../../locales/index.js';
 export default function NewNoteContainer({ onAddNote }) {
     const { CancelButton, SaveButton } = Buttons;
-    const { currentTheme, language } = useApp();
+    const { currentTheme, translations } = useApp();
     const classes = useStyles({ theme: currentTheme });
-    const translations = locales[language] || locales.en;
     const placeholderTitle = translations.titlePlaceholder;
     const placeholderContent = translations.contentPlaceholder;
     const [title, setTitle] = useState('');

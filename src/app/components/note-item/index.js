@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useApp } from "../../context/appcontext";
 import { Buttons } from "../index.js";
 import useStyles from './stylesheet';
-import locales from '../../locales/index.js';
 export default function NoteItem({ note, onDelete, onEdit }) {
     const { EditButton, DeleteButton, ExpandButton, LockButton, SaveButton, CancelButton, PriorityButton } = Buttons;
     const [content, setContent] = useState(note.content);
     const [priority, setPriority] = useState(note.priority);
-    const { currentTheme, language } = useApp();
-    const { passwordPlaceholder, createPassword, incorrectPassword, enterAPassword } = locales[language];
+    const { currentTheme, translations} = useApp();
+    const { passwordPlaceholder, createPassword, incorrectPassword, enterAPassword } = translations;
     const [isEditing, setIsEditing] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [title, setTitle] = useState(note.title);
@@ -79,13 +78,13 @@ export default function NoteItem({ note, onDelete, onEdit }) {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     className={classes.input}
-                    placeholder={locales[language].titlePlaceholder}
+                    placeholder={translations.titlePlaceholder}
                 />
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     className={classes.textarea}
-                    placeholder={locales[language].contentPlaceholder}
+                    placeholder={translations.contentPlaceholder}
                 />
                 <div className={classes.buttonContainer}>
                     <SaveButton onClick={handleSave} />

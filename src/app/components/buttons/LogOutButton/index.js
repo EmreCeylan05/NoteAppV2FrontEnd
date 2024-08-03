@@ -2,10 +2,8 @@ import React from "react";
 import { useApp } from "../../../context/appcontext";
 import { useAuth } from "../../../context/authcontext";
 import useStyles from '../stylesheet';
-import locales from '../../../locales/index';
 export default function LogOutButton() {
-    const { currentTheme, language } = useApp();
-    const translations = locales[language] || locales.en;
+    const { currentTheme, translations } = useApp();
     const { setUser } = useAuth();
     const classes = useStyles({ theme: currentTheme });
     const iconPath = `${process.env.PUBLIC_URL}/assets/icons`;

@@ -4,15 +4,13 @@ import { useAuth } from "../../context/authcontext";
 import { Buttons } from "../index.js";
 import axios from "axios";
 import useStyles from "./stylesheet";
-import locales from "../../locales";
 import constants from "../../constants/index.js";
 export default function SearchBar() {
     const { SearchButton } = Buttons;
     const { setNotes, user } = useAuth();
     const [query, setQuery] = useState('');
     const [showFixedInput, setShowFixedInput] = useState(false);
-    const { currentTheme, language } = useApp();
-    const translations = locales[language] || locales.en;
+    const { currentTheme, translations } = useApp();
     const classes = useStyles({ theme: currentTheme });
     const placeholder = translations.searchPlaceHolder;
     const owner = user.username;

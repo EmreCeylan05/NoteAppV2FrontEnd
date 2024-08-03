@@ -1,15 +1,13 @@
 import React from 'react';
 import useStyles from './stylesheet';
-import locales from '../../locales/index';
 import { useApp } from '../../context/appcontext';
 import { useAuth } from '../../context/authcontext';
 import { Buttons } from '../index';
 export default function NavBar() {
     const { BurgerButton, SwitchTheme, SwitchLanguage, PageToggle, LogOutButton } = Buttons;
-    const { theme, currentTheme, isMenuOpen, language } = useApp();
+    const { theme, currentTheme, isMenuOpen, language, translations } = useApp();
     const { user } = useAuth();
     const classes = useStyles({ theme: currentTheme });
-    const translations = locales[language] || locales.en;
     return (
         <div className={`${classes.menu} ${isMenuOpen === "open" ? 'open' : 'closed'}`}>
             <div className={classes.burger}><BurgerButton /></div>

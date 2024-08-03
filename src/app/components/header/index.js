@@ -1,16 +1,14 @@
 import React from "react";
 import useStyles from "./stylesheet.js";
-import locales from '../../locales/index.js';
 import { useApp } from "../../context/appcontext.js";
 import { useAuth } from "../../context/authcontext.js";
 import { Buttons, SearchBar } from '../index.js';
 export default function Header() {
     const { SwitchLanguage, SwitchTheme, LogOutButton, BurgerButton, PageToggle } = Buttons;
     const { user } = useAuth();
-    const { currentTheme, language } = useApp();
+    const { currentTheme, translations } = useApp();
     const classes = useStyles({ theme: currentTheme });
     const iconPath = `${process.env.PUBLIC_URL}/assets/icons`;
-    const translations = locales[language] || locales.en;
     const loggedinText = `${translations.welcomeUser}${user ? user.username : "null"}`;
     const loggedoutText = translations.signIn;
     const text = user === null ? loggedoutText : loggedinText;

@@ -5,16 +5,14 @@ import { Buttons } from '../index';
 import { useNavigate } from 'react-router-dom';
 import useStyles from './stylesheet';
 import axios from 'axios';
-import locales from '../../locales';
 import constants from "../../constants";
 export default function LoginContainer() {
     const { LogInButton, RegisterButton } = Buttons;
-    const { currentTheme, language } = useApp();
+    const { currentTheme, translations } = useApp();
     const { setUser, user, setNotes } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const classes = useStyles({ theme: currentTheme });
-    const translations = locales[language] || locales.en;
     const middleText = translations.or;
     const navigate = useNavigate();
     const server = constants.server;
